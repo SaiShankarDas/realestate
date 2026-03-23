@@ -63,16 +63,16 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <p className="text-xs text-muted-foreground text-center md:text-left">
+        <div className="mt-12 pt-8 border-t flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+            <p className="text-xs text-muted-foreground text-center md:text-left opacity-70">
               &copy; {new Date().getFullYear()} UrbanArch Mumbai. RERA Registered Portals Only.
             </p>
             <ShnkrDevBadge />
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-muted-foreground flex items-center gap-1 border border-border px-2 py-1 rounded">
-              <span className="w-2 h-2 rounded-full bg-green-500 block"></span>
+            <span className="text-[10px] text-muted-foreground font-bold tracking-widest flex items-center gap-2 border border-border/60 px-3 py-1.5 rounded-full bg-background/50 backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
               BUILT FOR MUMBAI
             </span>
           </div>

@@ -29,7 +29,7 @@ const ShnkrDevBadge: React.FC = () => {
             rel="noopener noreferrer"
             className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 group transition-opacity duration-300 hover:opacity-80"
         >
-            <span className="text-[11px] tracking-wide font-light whitespace-nowrap opacity-60">
+            <span className="text-[10px] uppercase tracking-[0.2em] font-bold whitespace-nowrap opacity-90" style={{ color: "#F2540F", textShadow: "0 0 10px rgba(242, 84, 15, 0.2)" }}>
                 Website Architected &amp; Engineered by
             </span>
             <motion.svg
