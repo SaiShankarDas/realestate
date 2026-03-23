@@ -66,7 +66,19 @@ export function Footer() {
           <p className="text-xs text-muted-foreground text-center md:text-left">
             &copy; {new Date().getFullYear()} UrbanArch Mumbai. RERA Registered Portals Only.
           </p>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-white/50 backdrop-blur-sm border border-primary-100/30 rounded-full shadow-sm">
+              <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Designed by</span>
+              <div className="relative w-20 h-5">
+                <Image 
+                  src="/images/wildsoul-watermark.png" 
+                  alt="WildSoul" 
+                  fill 
+                  className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  sizes="80px"
+                />
+              </div>
+            </div>
             <span className="text-xs text-muted-foreground flex items-center gap-1 border border-border px-2 py-1 rounded">
               <span className="w-2 h-2 rounded-full bg-green-500 block"></span>
               BUILT FOR MUMBAI
