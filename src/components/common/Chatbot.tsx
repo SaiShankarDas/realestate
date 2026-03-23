@@ -23,6 +23,13 @@ const INITIAL_MESSAGE: Message = {
   timestamp: new Date()
 };
 
+const SUGGESTED_QUESTIONS = [
+  "Show me luxury apartments in South Mumbai",
+  "Recommend units under ₹5 Cr",
+  "Best investment properties in Thane",
+  "What is UrbanArch AI?"
+];
+
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
@@ -34,11 +41,12 @@ export default function Chatbot() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isOpen, isLoading]);
 
-  const handleSend = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!inputValue.trim() || isLoading) return;
+  const handleSend = async (e?: React.FormEvent, textOverride?: string) => {
+    if (e) e.preventDefault();
+    const userText = textOverride || inputValue;
+    
+    if (!userText.trim() || isLoading) return;
 
-    const userText = inputValue;
     const userMsg: Message = {
       id: Date.now().toString(),
       text: userText,
@@ -183,6 +191,23 @@ export default function Chatbot() {
                 </motion.div>
               ))}
               
+              {messages.length === 1 && !isLoading && (
+                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-primary-50/30">
+                  {SUGGESTED_QUESTIONS.map((q, i) => (
+                    <motion.button
+                      key={i}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 + i * 0.1 }}
+                      onClick={() => handleSend(undefined, q)}
+                      className="text-[11px] font-bold text-primary-900 bg-white border border-primary-100 px-4 py-2.5 rounded-2xl hover:bg-primary-900 hover:text-white hover:border-primary-900 transition-all shadow-sm active:scale-95 text-left"
+                    >
+                      {q}
+                    </motion.button>
+                  ))}
+                </div>
+              )}
+
               {isLoading && (
                 <div className="flex gap-3 mr-auto max-w-[85%]">
                   <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-primary-900 flex items-center justify-center text-white shadow-md animate-pulse">
